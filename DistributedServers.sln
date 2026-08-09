@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Center", "Center", "{5FEBA55E-0E05-420E-8790-DF625B703F97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedServers.Central.Consumer", "src\Central\Consumer\DistributedServers.Central.Consumer\DistributedServers.Central.Consumer.csproj", "{6EC8FE0A-8F5E-48F7-90A7-2168F55D69B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Consumer", "Consumer", "{518127C1-78C5-4934-AACF-CD57BFB42D34}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Edge", "Edge", "{7638B856-1D1D-4730-B1B2-3B27A9C3372D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6EC8FE0A-8F5E-48F7-90A7-2168F55D69B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EC8FE0A-8F5E-48F7-90A7-2168F55D69B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EC8FE0A-8F5E-48F7-90A7-2168F55D69B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EC8FE0A-8F5E-48F7-90A7-2168F55D69B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{518127C1-78C5-4934-AACF-CD57BFB42D34} = {5FEBA55E-0E05-420E-8790-DF625B703F97}
+		{6EC8FE0A-8F5E-48F7-90A7-2168F55D69B9} = {518127C1-78C5-4934-AACF-CD57BFB42D34}
+	EndGlobalSection
+EndGlobal

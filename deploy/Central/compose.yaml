@@ -1,0 +1,36 @@
+
+services:
+  kafka:
+    image: apache/kafka:latest
+    hostname: kafka-host
+
+    networks:
+      - kafka-network
+
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-cluster.sh cluster-id --bootstrap-server localhost:9092 || exit 1"]
+      interval: 30s
+      timeout: 15s
+      retries: 5
+      start_period: 30s
+
+  consumer-service:
+    build:
+      context: ../../src/
+      dockerfile: Central/Consumer/Dockerfile
+
+    networks:
+      - kafka-network
+
+    environment:
+      - Kafka__BootstrapServers=localhost:9092
+      - Kafka__ConsumerGroupId=test-consumers
+
+    depends_on:
+      kafka:
+        condition: service_healthy
+
+
+networks:
+  kafka-network:
+    driver: bridge

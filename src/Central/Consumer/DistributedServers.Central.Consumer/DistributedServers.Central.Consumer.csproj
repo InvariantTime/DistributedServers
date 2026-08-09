@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>dotnet-DistributedServers.Central.Consumer-b7b3a6f8-86a1-4a40-be41-6eaeb1fc3f3b</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Confluent.Kafka" Version="2.15.0" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.10"/>
+    </ItemGroup>
+</Project>
