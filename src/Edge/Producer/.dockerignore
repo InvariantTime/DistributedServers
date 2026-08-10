@@ -1,0 +1,24 @@
+# Build and output artifacts
+**/bin/
+**/obj/
+**/out/
+
+# IDE and source control configurations
+.vs/
+.vscode/
+.git/
+.gitignore
+*.user
+*.suo
+
+# Docker files
+Dockerfile*
+docker-compose*
+
+# Local publishing and logs
+*.log
+*.pubxml
+
+# Secrets and local environment settings
+appsettings.Development.json
+secrets.json

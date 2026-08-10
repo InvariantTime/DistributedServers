@@ -72,6 +72,21 @@ services:
       kafka-init:
         condition: service_completed_successfully
 
+  producer-service: #TODO: move to edge cluster
+    build:
+      context: ../../src/
+      dockerfile: Edge/Producer/Dockerfile
+
+    networks:
+      - kafka-network
+
+    environment:
+      - Kafka__BootstrapServers=kafka:9092
+    
+    depends_on:
+      kafka-init:
+        condition: service_completed_successfully
+
 
 networks:
   kafka-network:
