@@ -1,0 +1,22 @@
+include:
+  - ./Edge/compose.yaml
+  - ./Central/compose.yaml
+
+services:
+  mirror-maker:
+    image: apache/kafka:4.3.1
+
+    networks:
+      - kafka-central-network
+      - kafka-edge-network
+
+    volumes:
+      - ./mm2/default.properties:/etc/kafka/mm2.properties:ro
+
+    entrypoint: ["/opt/kafka/bin/connect-mirror-maker.sh", "/etc/kafka/mm2.properties"]
+
+    depends_on:
+      kafka-central-init:
+        condition: service_completed_successfully
+      kafka-edge-init:
+        condition: service_completed_successfully
