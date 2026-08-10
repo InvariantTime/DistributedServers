@@ -15,11 +15,11 @@ public class Worker : BackgroundService
     
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        _consumer.Subscribe("test-topic");
-        
-        while (stoppingToken.IsCancellationRequested == false)
+        _consumer.Subscribe("test-events");
+
+        try
         {
-            try
+            while (stoppingToken.IsCancellationRequested == false)
             {
                 var result = _consumer.Consume(stoppingToken);
 
@@ -27,11 +27,7 @@ public class Worker : BackgroundService
 
                 await Task.Delay(100, stoppingToken);
             }
-            catch (OperationCanceledException) {}
-            finally
-            {
-                _consumer.Close();
-            }
         }
+        catch (OperationCanceledException) {}
     }
 }
