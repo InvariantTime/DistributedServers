@@ -1,7 +1,7 @@
 
 set -e
 
-BOOTSTRAP_SERVER="${KAFKA_BOOTSTRAP_SERVER:-kafka:9092}"
+BOOTSTRAP_SERVER="${KAFKA_BOOTSTRAP_SERVER:-localhost:9092}"
 
 echo "init kafka..."
 

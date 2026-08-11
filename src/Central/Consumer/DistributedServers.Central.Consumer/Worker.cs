@@ -1,4 +1,6 @@
+using System.Text.Json;
 using Confluent.Kafka;
+using DistributedServers.Contracts.Events;
 
 namespace DistributedServers.Central.Consumer;
 
@@ -13,7 +15,7 @@ public class Worker : BackgroundService
         _logger = logger;
     }
     
-    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    protected override Task ExecuteAsync(CancellationToken stoppingToken)
     {
         _consumer.Subscribe("test-events");
 
@@ -23,11 +25,17 @@ public class Worker : BackgroundService
             {
                 var result = _consumer.Consume(stoppingToken);
 
-                _logger.LogInformation("Received message: {message}", result.Message.Value);
-
-                await Task.Delay(100, stoppingToken);
+                var @event = JsonSerializer.Deserialize<GenericEvent>(result.Message.Value);
+                
+                if (@event == null)
+                    continue;//TODO: handle invalid messages
+                
+                _logger.LogInformation("Received event: Id: {Id}, Type: {Type}, Key: {Key}, Value: {Value}", 
+                    @event.EventId, @event.EventType, @event.Key, @event.Value);
             }
         }
         catch (OperationCanceledException) {}
+        
+        return Task.CompletedTask;
     }
 }
