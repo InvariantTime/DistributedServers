@@ -9,19 +9,19 @@ builder.Services.Configure<KafkaOptions>(builder.Configuration.GetSection(KafkaO
 builder.Services.AddSingleton(scope =>
 {
     var options = scope.GetRequiredService<IOptions<KafkaOptions>>().Value;
-    var logger = scope.GetRequiredService<ILogger<IProducer<Null, string>>>();
+    var logger = scope.GetRequiredService<ILogger<IProducer<string, string>>>();
     
     var config = new ProducerConfig()
     {
         BootstrapServers = options.BootstrapServers
     };
 
-    void ErrorHandler(IProducer<Null, string> producer,  Error error)
+    void ErrorHandler(IProducer<string, string> producer,  Error error)
     {
         logger.LogError("Kafka error: {Reason}", error.Reason);
     }
     
-    return new ProducerBuilder<Null, string>(config)
+    return new ProducerBuilder<string, string>(config)
         .SetErrorHandler(ErrorHandler)
         .Build();
 });

@@ -3,7 +3,8 @@ FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 
 WORKDIR /src
 
-COPY "Edge/Producer/" ./Edge/Producer/
+COPY ./Edge/Producer/ ./Edge/Producer/
+COPY ./Shared/ ./Shared/
 
 RUN dotnet publish "Edge/Producer/DistributedServers.Edge.Producer/DistributedServers.Edge.Producer.csproj" -c Release  -o /.out
 

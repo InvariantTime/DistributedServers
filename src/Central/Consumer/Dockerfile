@@ -1,12 +1,11 @@
 
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 
-LABEL project-path = "Central/Consumer/"
-LABEL csproj-path="DistributedServers.Central.Consumer/DistributedServers.Central.Consumer.csproj"
 
 WORKDIR /src
 
-COPY "Central/Consumer/" ./Central/Consumer/
+COPY ./Central/Consumer/ ./Central/Consumer/
+COPY ./Shared/ ./Shared/
 
 RUN dotnet publish "Central/Consumer/DistributedServers.Central.Consumer/DistributedServers.Central.Consumer.csproj" -c Release  -o /.out
 

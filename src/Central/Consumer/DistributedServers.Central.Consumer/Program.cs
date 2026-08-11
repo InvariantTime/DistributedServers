@@ -17,14 +17,14 @@ builder.Services.AddSingleton(scope =>
         AutoOffsetReset = AutoOffsetReset.Earliest
     };
 
-    var logger = scope.GetRequiredService<ILogger<IConsumer<Ignore, string>>>();
+    var logger = scope.GetRequiredService<ILogger<IConsumer<string, string>>>();
     
-    void ErrorHandler(IConsumer<Ignore, string> consumer, Error error)
+    void ErrorHandler(IConsumer<string, string> consumer, Error error)
     {
         logger.LogError("Kafka error: {reason}", error.Reason);
     }
 
-    return new ConsumerBuilder<Ignore, string>(config)
+    return new ConsumerBuilder<string, string>(config)
         .SetErrorHandler(ErrorHandler)
         .Build();
 });

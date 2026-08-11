@@ -10,6 +10,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Edge", "Edge", "{7638B856-1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedServers.Edge.Producer", "src\Edge\Producer\DistributedServers.Edge.Producer\DistributedServers.Edge.Producer.csproj", "{9C669BA1-568B-4409-A075-2E48E04FC437}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{3A993308-EBD3-4A11-8BBE-9D413767DCDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedServers.Contracts", "src\Shared\DistributedServers.Contracts\DistributedServers.Contracts.csproj", "{475E6DE7-6870-49B4-BE13-3F15799F6B79}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,10 +28,15 @@ Global
 		{9C669BA1-568B-4409-A075-2E48E04FC437}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C669BA1-568B-4409-A075-2E48E04FC437}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C669BA1-568B-4409-A075-2E48E04FC437}.Release|Any CPU.Build.0 = Release|Any CPU
+		{475E6DE7-6870-49B4-BE13-3F15799F6B79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{475E6DE7-6870-49B4-BE13-3F15799F6B79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{475E6DE7-6870-49B4-BE13-3F15799F6B79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{475E6DE7-6870-49B4-BE13-3F15799F6B79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{518127C1-78C5-4934-AACF-CD57BFB42D34} = {5FEBA55E-0E05-420E-8790-DF625B703F97}
 		{6EC8FE0A-8F5E-48F7-90A7-2168F55D69B9} = {518127C1-78C5-4934-AACF-CD57BFB42D34}
 		{9C669BA1-568B-4409-A075-2E48E04FC437} = {7638B856-1D1D-4730-B1B2-3B27A9C3372D}
+		{475E6DE7-6870-49B4-BE13-3F15799F6B79} = {3A993308-EBD3-4A11-8BBE-9D413767DCDB}
 	EndGlobalSection
 EndGlobal

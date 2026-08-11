@@ -5,9 +5,9 @@ namespace DistributedServers.Central.Consumer;
 public class Worker : BackgroundService
 {
     private readonly  ILogger<Worker> _logger;
-    private readonly IConsumer<Ignore, string> _consumer;
+    private readonly IConsumer<string, string> _consumer;
 
-    public Worker(IConsumer<Ignore, string> consumer, ILogger<Worker> logger)
+    public Worker(IConsumer<string, string> consumer, ILogger<Worker> logger)
     {
         _consumer = consumer;
         _logger = logger;
